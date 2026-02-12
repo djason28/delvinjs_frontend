@@ -4,4 +4,10 @@
   "assets": {
     "directory": "./dist",
   },
+  "routes": [
+    {
+      "pattern": "delvinjs.dev",
+      "custom_domain": true,
+    },
+  ],
 }
