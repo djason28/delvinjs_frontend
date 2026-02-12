@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+/* =========================================================
+   Serene Coastline Theme (light, calm, not flashy)
+   Palette:
+     Primary (Deep Cyan): #19747E
+     Secondary (Light Blue): #A9D6E5
+     Accent (Mint): #D1E8E2
+     Border (Platinum): #E2E2E2
+     BG Tint: #F5FAFB
+   ========================================================= */
+
+:root{
+  --bg: #F5FAFB;
+  --surface: #FFFFFF;
+  --text: #0F172A;
+  --muted: #64748B;
+  --border: #E2E2E2;
+
+  --primary: #19747E;
+  --primary-hover: color-mix(in srgb, var(--primary) 88%, black);
+  --secondary: #A9D6E5;
+  --accent: #D1E8E2;
+
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow-soft: 0 6px 22px rgba(15, 23, 42, 0.06);
+
+  --radius-xl: 20px;
+  --radius-lg: 16px;
+
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-display: Sora, Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Base */
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-sans); background: var(--bg); color: var(--text); }
+section { scroll-margin-top: 92px; }
+
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration-thickness: 2px; }
+
+.skip-link{
+  position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
+}
+.skip-link:focus{
+  position:fixed; left:16px; top:16px; width:auto; height:auto; padding:10px 12px;
+  background: var(--surface); border:1px solid var(--border); border-radius: 999px;
+  box-shadow: var(--shadow-soft); z-index: 9999;
+}
+
+/* Custom utility-like classes */
+.bg-background { background: var(--bg); }
+.bg-surface { background: var(--surface); }
+.text-foreground { color: var(--text); }
+.text-muted { color: var(--muted); }
+.border-border { border-color: var(--border); }
+.text-primary { color: var(--primary); }
+.bg-primary { background: var(--primary); }
+
+.hero-gradient {
+  background: linear-gradient(135deg,
+    rgba(169,214,229,0.55) 0%,
+    rgba(209,232,226,0.45) 45%,
+    rgba(245,250,251,1) 100%
+  );
+}
+
+/* Subtle “premium” separators */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    color-mix(in srgb, var(--secondary) 55%, white),
+    color-mix(in srgb, var(--accent) 55%, white),
+    transparent
+  );
+  opacity: 0.9;
+}
+
+/* Reduced motion support: keep motion non-essential per user preference */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+/* Nice focus ring */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 35%, transparent);
+  border-radius: 12px;
+}
+
+/* Bigger scale only on large desktops (doesn't affect 1366x768) */
+@media (min-width: 1536px) {
+  html { font-size: 17px; }
+}
+@media (min-width: 1920px) {
+  html { font-size: 18px; }
+}
