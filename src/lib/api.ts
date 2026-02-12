@@ -1,3 +1,11 @@
+import type {
+  Profile,
+  Skills,
+  Project,
+  ExperienceItem,
+  EducationItem,
+} from "../types";
+
 const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 async function fetchJSON<T>(path: string, signal?: AbortSignal): Promise<T> {
@@ -8,9 +16,12 @@ async function fetchJSON<T>(path: string, signal?: AbortSignal): Promise<T> {
 }
 
 export const api = {
-  profile: (signal?: AbortSignal) => fetchJSON("/api/profile", signal),
-  skills: (signal?: AbortSignal) => fetchJSON("/api/skills", signal),
-  projects: (signal?: AbortSignal) => fetchJSON("/api/projects", signal),
-  experience: (signal?: AbortSignal) => fetchJSON("/api/experience", signal),
-  education: (signal?: AbortSignal) => fetchJSON("/api/education", signal)
+  profile: (signal?: AbortSignal) => fetchJSON<Profile>("/api/profile", signal),
+  skills: (signal?: AbortSignal) => fetchJSON<Skills>("/api/skills", signal),
+  projects: (signal?: AbortSignal) =>
+    fetchJSON<Project[]>("/api/projects", signal),
+  experience: (signal?: AbortSignal) =>
+    fetchJSON<ExperienceItem[]>("/api/experience", signal),
+  education: (signal?: AbortSignal) =>
+    fetchJSON<EducationItem[]>("/api/education", signal),
 };
