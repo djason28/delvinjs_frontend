@@ -38,9 +38,16 @@ export function Modal({
   return (
     <dialog
       ref={ref}
-      className={`w-[min(960px,92vw)] rounded-[var(--radius-xl)] border border-border bg-surface p-0 ${
+      className={`w-[min(960px,92vw)] max-h-[85vh] overflow-auto rounded-[var(--radius-xl)] border border-border bg-surface p-0 ${
         reduce ? "" : "animate-[fadeIn_140ms_ease-out]"
       }`}
+      style={{
+        position: 'fixed',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        margin: 0
+      }}
       onClick={(e) => {
         const el = ref.current;
         if (!el) return;
