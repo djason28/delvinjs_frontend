@@ -13,7 +13,7 @@ export const portfolioData: PortfolioData = {
       "English + Mandarin • Teaching mindset",
     ],
     socials: {
-      email: "delvinjason28.tio@gmail.com",
+      email: "contact@delvinjs.dev",
       github: "https://github.com/djason28",
       linkedin: "https://linkedin.com/in/delvin-jason-8535612b6",
     },
