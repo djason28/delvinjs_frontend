@@ -13,7 +13,7 @@ import { Separator } from "./components/ui/Separator";
 import { BackToTop } from "./components/BackToTop";
 
 export default function App() {
-  const { data, loading, error } = usePortfolioData();
+  const { data } = usePortfolioData();
 
   const navItems = [
     { id: "about", label: "About" },
@@ -27,16 +27,6 @@ export default function App() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar items={navItems} />
-
-      {error && (
-        <div className="pt-[74px]">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <div className="mt-3 rounded-[var(--radius-lg)] border border-border bg-[color:color-mix(in_srgb,var(--secondary)_22%,white)] p-3 text-sm">
-              <span className="font-semibold">Notice:</span> {error}
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Hero already includes its own top padding for fixed nav */}
       <Hero profile={data.profile} />

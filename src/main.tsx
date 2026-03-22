@@ -3,8 +3,12 @@ import ReactDOM from "react-dom/client";
 import "./styles/app.css";
 import App from "./App";
 
+import { ErrorBoundary } from "./components/ui/ErrorBoundary";
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
   </React.StrictMode>
 );
