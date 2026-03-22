@@ -1,5 +1,5 @@
 {
-  "name": "delvin",
+  "name": "delvinjs-frontend",
   "compatibility_date": "2026-02-12", // Update to the day you deploy
   "assets": {
     "directory": "./dist",
